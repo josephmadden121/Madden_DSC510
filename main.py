@@ -1,74 +1,51 @@
 # DSC510
-# Week 5
-# Programming Assignment - 5.1
+# Week 6
+# Programming Assignment - 6.1
 # Author: Joseph Madden
-# Date: 09/27/2022
-# The purpose of this program is to perform different math operating using loops and functions.
+# Date: 10/05/2022
+# The purpose of this program is find the largest and smallest values from the list.
 
-base_cost = 0.87
-# declare and initialize a variable for calculated_cost to remove the undefined error
-calculated_cost = 0
-print("Welcome to my Basic Calculator - the fiber optic cable installation company")
-name = input("What is your name: \n")
-print('')
-print('Hi', name, 'I am happy to help you!')
-#function to calculate addition, subtraction, multiplication and division
-def perform_calculation('num'):
+# function to sort the given list in descending order
+def sort_list(unsorted_list):
+    for i in range(len(unsorted_list)):
+        for j in range(i+1, len(unsorted_list)):
+            if unsorted_list[i] < unsorted_list[j]:
+                unsorted_list[i], unsorted_list[j] = unsorted_list[j], unsorted_list[i]
+    return unsorted_list
+
+
+# input for temperatures
+temperatures = [21, 30, 33, 35, 39, 41, 32, 36, 31, 45, 47, 44]
+# empty output list
+output_list =[] for temperature in temperatures:
+ if temperatures not in range (0,13):
+  output_list = output_list + [temperatures]
+# print the output_list
+# print (output_list)
+sentinel = 0
+count = 0
+# largest_temp = 47
+# smallest_temp = 21
+message = 'Please enter the temperature, 0 to stop\n'
 try:
-    value1 = float(input('Please enter first number:\n'))
-    value2 = float(input('Please enter second number:\n'))
-    if 'num' == 1:
-        calc = value1 + value2
-        print("Addition of given numbers", value1, "&", value2, "is :", calculated_cost)
-    elif 'num' == 2:
-        calc = value1 - value2
-        print("Subtraction of given numbers", value1, "&", value2, "is :", calculated_cost)
-    elif 'num' == 3:
-        calc = value1 * value2
-        print("multiplication of given numbers", value1,  "&", value2, "is :", calculated_cost)
-    elif 'num' == 4:
-        if value2 != 0:
-            calc = round(value1 / value2, 2)
-            print("Division of given numbers", value1, "&", value2, "is :", calculated_cost)
-        else:
-            print('Please provide second non-zero number')
+    temp = float(input(message))
+    while temp != sentinel:
+        temperatures.append(temp)
+        count = count + 1
+        temp = float(input(message))
 except Exception as ex:
-    print('Error occurred: ', ex)
+    print('Error Received, ', ex)
+    print('Thank you!!')
+if count > 0:
+    print('The list of entered temperatures is: ', temperatures)
+    print('The number of entered temperatures are: ', count)
 
-    #function to calculate average of given numbers
-    def calculate_average():
-        try:
-            max_value = int(input('How many numbers you wish to enter\n'))
-            count = 0
-            total = 0
-            if max_value > 0:
-                for value in range(max_value):
-                    print('Please enter number', value + 1, ":")
-                    number = float(input())
-                    count = count + 1
-                    total = total + number
-                    print('Average of given numbers is: ', round(total / count, 2))
-                else:
-                    print('Please enter valid non-zero number')
-        except 'exception' as 'ex':
-            print('Error occurred: ', ex)
+    # sorted_temp = sorted(temperatures, reverse=True)# save the sorted list in descending order using built-in sorted()
+    # function
 
-#main section of program where user input asked for math operations
-
-    user_input = 'Yes'
-    try:
-        while user_input = input("Would like to perorm math operations? enter Yes or No\n")
-        if user_input.lower() == 'Yes':
-            user_choice = int(input(
-                'Please enter the appropriate number 1:Addition, 2:Subtraction, 3:Multiplication, 4:Division, 5:Average\n'))
-            if user_choice in [1, 2, 3, 4]:
-               perform_calculation('choice')
-            elif user_choice == 5:
-                calculate_average()
-            else:
-                print('Please enter valid number from given options')
-            'else_keyword'
-            print('Thank you!')
-    except Exception as ex:
-        print('Error occurred: ', ex)
-
+    # since this is assignment so created function rather using built-in function to sort list.
+    sorted_temp = sort_list(temperatures)   # save the sorted list in descending order from the function
+    print('The largest temperature from the entered list is: ', sorted_temp[0])
+    print('The smallest temperature from the entered list is: ', sorted_temp[-1])
+else:
+    print('Please enter valid temperature')
